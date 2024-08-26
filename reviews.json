@@ -1,0 +1,124 @@
+{
+    "reviews": [
+      {
+        "professor": "John Smith",
+        "subject": "Computer Science",
+        "stars": 4,
+        "review": "Professor Smith is a great teacher. He is very knowledgeable and explains concepts clearly."
+      },
+      {
+        "professor": "Jane Doe",
+        "subject": "History",
+        "stars": 5,
+        "review": "Professor Doe is the best professor I've ever had. Her lectures are engaging and her exams are fair."
+      },
+      {
+        "professor": "Michael Brown",
+        "subject": "Biology",
+        "stars": 3,
+        "review": "Professor Brown is a good teacher, but his exams are difficult."
+      },
+      {
+        "professor": "Emily Chen",
+        "subject": "Math",
+        "stars": 2,
+        "review": "Professor Chen is not a good teacher. Her lectures are boring and her exams are unfair."
+      },
+      {
+        "professor": "Thomas Johnson",
+        "subject": "Chemistry",
+        "stars": 5,
+        "review": "Professor Johnson is a great teacher. He is very patient and helpful."
+      },
+      {
+        "professor": "Sarah Lee",
+        "subject": "English",
+        "stars": 4,
+        "review": "Professor Lee is a good teacher, but her assignments are time-consuming."
+      },
+      {
+        "professor": "David Kim",
+        "subject": "Physics",
+        "stars": 3,
+        "review": "Professor Kim is a good teacher, but his lectures are dry."
+      },
+      {
+        "professor": "Jennifer Davis",
+        "subject": "Psychology",
+        "stars": 5,
+        "review": "Professor Davis is the best professor I've ever had. Her lectures are engaging and her exams are fair."
+      },
+      {
+        "professor": "Christopher Hall",
+        "subject": "Sociology",
+        "stars": 4,
+        "review": "Professor Hall is a good teacher, but his exams are difficult."
+      },
+      {
+        "professor": "Ava Taylor",
+        "subject": "Economics",
+        "stars": 3,
+        "review": "Professor Taylor is a good teacher, but her lectures are boring."
+      },
+      {
+        "professor": "Matthew Clark",
+        "subject": "Political Science",
+        "stars": 5,
+        "review": "Professor Clark is a great teacher. He is very knowledgeable and explains concepts clearly."
+      },
+      {
+        "professor": "Olivia Martin",
+        "subject": "Philosophy",
+        "stars": 4,
+        "review": "Professor Martin is a good teacher, but her assignments are time-consuming."
+      },
+      {
+        "professor": "Nathan White",
+        "subject": "Music",
+        "stars": 3,
+        "review": "Professor White is a good teacher, but his lectures are dry."
+      },
+      {
+        "professor": "Isabella Garcia",
+        "subject": "Art",
+        "stars": 5,
+        "review": "Professor Garcia is the best professor I've ever had. Her lectures are engaging and her exams are fair."
+      },
+      {
+        "professor": "Ethan Brooks",
+        "subject": "Foreign Language",
+        "stars": 4,
+        "review": "Professor Brooks is a good teacher, but his exams are difficult."
+      },
+      {
+        "professor": "Lily Tran",
+        "subject": "Business",
+        "stars": 3,
+        "review": "Professor Tran is a good teacher, but her lectures are boring."
+      },
+      {
+        "professor": "Noah Patel",
+        "subject": "Engineering",
+        "stars": 5,
+        "review": "Professor Patel is a great teacher. He is very knowledgeable and explains concepts clearly."
+      },
+      {
+        "professor": "Sophia Rodriguez",
+        "subject": "Health Science",
+        "stars": 4,
+        "review": "Professor Rodriguez is a good teacher, but her assignments are time-consuming."
+      },
+      {
+        "professor": "Alexander Lee",
+        "subject": "Computer Science",
+        "stars": 3,
+        "review": "Professor Lee is a good teacher, but his lectures are dry."
+      },
+      {
+        "professor": "Mia Kim",
+        "subject": "History",
+        "stars": 5,
+        "review": "Professor Kim is the best professor I've ever had. Her lectures are engaging and her exams are fair."
+      }
+    ]
+  }
