@@ -1,13 +1,12 @@
 "use client";
-import { TextField, Box, Stack, Button, Switch, Typography, Avatar } from "@mui/material";
+import { TextField, Box, Stack, Button, Switch, Typography } from "@mui/material";
 import { useState } from "react";
-import Image from "next/image"; // Ensure 'Image' is capitalized for Next.js usage
 
 export default function Home() {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: "Hi! I am the LOVA AI rate my Professor support assistant. How can I help you today?",
+      content: "Hi! I am the LOVA AI Professor support assistant. How can I help you today?",
     }
   ]);
 
@@ -81,13 +80,10 @@ export default function Home() {
           backgroundColor: darkMode ? "#444" : "#f7f7f7",
         }}
       >
-        {/* Header with logo and app name */}
-        <Stack direction="row" justifyContent="center" alignItems="center">
-          <Avatar alt="LOVA AI PROFESSOR Logo" src="/path/to/logo.png" sx={{ width: 40, height: 40 }} /> 
-          <Typography variant="h6" color={darkMode ? "#fff" : "#000"} sx={{ marginLeft: 1 }}>
-            LOVA AI PROFESSOR
-          </Typography>
-        </Stack>
+        {/* Header with app name */}
+        <Typography variant="subtitle2" color={darkMode ? "#fff" : "#000"} textAlign="center">
+          LOVA AI PROFESSOR
+        </Typography>
 
         {/* Messages container */}
         <Stack direction="column" spacing={2} flexGrow={1} overflow="auto" maxHeight="100vh">
