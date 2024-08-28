@@ -1,13 +1,13 @@
 "use client";
-import { TextField, Box, Stack, Button, Switch } from "@mui/material";
-import { useState, useEffect } from "react";
-import image from "next/image";
+import { TextField, Box, Stack, Button, Switch, Typography, Avatar } from "@mui/material";
+import { useState } from "react";
+import Image from "next/image"; // Ensure 'Image' is capitalized for Next.js usage
 
 export default function Home() {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: "Hi! I am the Rate My Professor support assistant. How can I help you today?",
+      content: "Hi! I am the LOVA AI rate my Professor support assistant. How can I help you today?",
     }
   ]);
 
@@ -65,11 +65,12 @@ export default function Home() {
       alignItems="center"
       sx={{
         backgroundColor: darkMode ? "#333" : "#f7f7f7",
+        padding: 2,
       }}
     >
       <Stack
         direction="column"
-        width="500px"
+        width={{ xs: "90%", sm: "500px" }} // Adjust width for mobile screens
         height="700px"
         border="1px solid #ddd"
         borderRadius={4}
@@ -80,6 +81,15 @@ export default function Home() {
           backgroundColor: darkMode ? "#444" : "#f7f7f7",
         }}
       >
+        {/* Header with logo and app name */}
+        <Stack direction="row" justifyContent="center" alignItems="center">
+          <Avatar alt="LOVA AI PROFESSOR Logo" src="/path/to/logo.png" sx={{ width: 40, height: 40 }} /> 
+          <Typography variant="h6" color={darkMode ? "#fff" : "#000"} sx={{ marginLeft: 1 }}>
+            LOVA AI PROFESSOR
+          </Typography>
+        </Stack>
+
+        {/* Messages container */}
         <Stack direction="column" spacing={2} flexGrow={1} overflow="auto" maxHeight="100vh">
           {messages.map((message, index) => (
             <Box
@@ -108,6 +118,8 @@ export default function Home() {
             </Box>
           ))}
         </Stack>
+
+        {/* Input area with text field, send button, and dark mode switch */}
         <Stack direction="row" spacing={2}>
           <TextField
             label="Message"
