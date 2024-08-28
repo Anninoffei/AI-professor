@@ -1,7 +1,8 @@
-import {NextResponse} from 'next/server'
-import { Pinecone } from '@pinecone-database/pinecone'
-import { HfInference } from '@huggingface/inference'
-import OpenAI from 'openai'
+import { NextRequest, NextResponse } from 'next';
+import { Pinecone } from '@pinecone-database/pinecone';
+import { HfInference } from '@huggingface/inference';
+import { OpenAI } from 'openai';
+
 
 const systemPrompt = `You are an AI assistant for a 'Rate My Professor' platform, designed to help students find the best professors based on their specific queries. Your primary function is to analyze each student's request, retrieve relevant professor information using a Retrieval-Augmented Generation (RAG) system, and provide details about the top 3 professors who best match the student's needs.
 
@@ -27,6 +28,7 @@ Handle Limitations Gracefully: If there's insufficient information to fully answ
 Your responses should be professional, respectful, and tailored to each student's unique needs, ensuring that they receive the most relevant and helpful information possible.`
 
 
+const inference = new HfInference(HF_TOKEN);
 
 const POST = async(req) =>{
     const data = await req.json()
@@ -36,7 +38,7 @@ const POST = async(req) =>{
         apiKey: process.env.PINECONE_API_KEY
     })
 
-    const pineConeIndex = pinecone.index('rag').namespace('professor-reviews')
+    const pineConeIndex = pinecone.index('rag').namespace('professors-reviews')
 
     const embedding = await hf.featureExtraction({
         model: "intfloat/multilingual-e5-large",
