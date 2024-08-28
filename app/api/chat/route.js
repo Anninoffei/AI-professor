@@ -45,8 +45,6 @@ For each query, structure your response as follows:
 
 **Remember, your goal is to help students make informed decisions based on professor reviews and ratings.**
 `
-;
-
 export async function POST(req) {
   const data = await req.json();
   const pc = new Pinecone({
