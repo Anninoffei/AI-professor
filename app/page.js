@@ -1,25 +1,26 @@
 "use client";
-import { TextField, Box, Stack, Button } from "@mui/material";
+import { TextField, Box, Stack, Button, Switch } from "@mui/material";
 import { useState, useEffect } from "react";
 import image from "next/image";
 
 export default function Home() {
   const [messages, setMessages] = useState([
-        {
-          role: "assistant",
-          content:"Hi! I am the Rate My Professor support assistant. How can I help you today?",
-        }
-      ])
+    {
+      role: "assistant",
+      content: "Hi! I am the Rate My Professor support assistant. How can I help you today?",
+    }
+  ]);
 
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('');
+  const [darkMode, setDarkMode] = useState(false); // new state for dark mode
 
   const sendMessage = async () => {
     setMessages((messages) => [
       ...messages,
       { role: "user", content: message },
       { role: "assistant", content: "" }
-    ])
-    setMessage('')
+    ]);
+    setMessage('');
 
     const response = await fetch("/api/chat", {
       method: "POST",
@@ -27,28 +28,33 @@ export default function Home() {
         "Content-Type": "application/json"
       },
       body: JSON.stringify([...messages, { role: "user", content: message }]),
-    }).then (async(res)=>{
-      const reader = res.body.getReader()
-      const decoder = new TextDecoder()
+    }).then(async (res) => {
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
 
-      let result = ''
-      return reader.read().then(function processText({done, value}){
-        if (done){ 
-          return result
+      let result = '';
+      return reader.read().then(function processText({ done, value }) {
+        if (done) {
+          return result;
         }
-        const text = decoder.decode(value || new Uint8Array(), {stream: true})
-        setMessages((messages)=>{
-          let lastMessage = messages[messages.length - 1]
-          let otherMessages = messages.slice(0, messages.length - 1)
+        const text = decoder.decode(value || new Uint8Array(), { stream: true });
+        setMessages((messages) => {
+          let lastMessage = messages[messages.length - 1];
+          let otherMessages = messages.slice(0, messages.length - 1);
           return [
             ...otherMessages,
-            {...lastMessage, content: lastMessage.content + text}, 
-          ]
-        })
-        return reader.read().then(processText)
-      })
-    })
-  }
+            { ...lastMessage, content: lastMessage.content + text },
+          ];
+        });
+        return reader.read().then(processText);
+      });
+    });
+  };
+
+  const handleDarkModeChange = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <Box
       width="100vw"
@@ -57,6 +63,9 @@ export default function Home() {
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
+      sx={{
+        backgroundColor: darkMode ? "#333" : "#f7f7f7",
+      }}
     >
       <Stack
         direction="column"
@@ -67,8 +76,8 @@ export default function Home() {
         p={2}
         spacing={3}
         sx={{
-          backgroundColor: "#f7f7f7",
           boxShadow: "0px 0px 10px rgba(0,0,0,0.2)",
+          backgroundColor: darkMode ? "#444" : "#f7f7f7",
         }}
       >
         <Stack direction="column" spacing={2} flexGrow={1} overflow="auto" maxHeight="100vh">
@@ -80,18 +89,18 @@ export default function Home() {
                 message.role === "assistant" ? "flex-start" : "flex-end"
               }
               className={index === messages.length - 1 ? "show" : ""}
-            > 
-            
+            >
               <Box
                 bgcolor={
                   message.role === "assistant"
-                    ? "#1976d2"
-                    : "#9c27b0"}
-                color="white"
+                    ? darkMode ? "#666" : "#1976d2"
+                    : darkMode ? "#777" : "#9c27b0"
+                }
+                color={darkMode ? "#fff" : "white"}
                 borderRadius={16}
                 p={2}
                 sx={{
-                  maxWidth:'70%'
+                  maxWidth: '70%'
                 }}
               >
                 {message.content}
@@ -110,22 +119,17 @@ export default function Home() {
             sx={{
               '& ,MuiInputBase-input': {
                 padding: '10px',
-              }
+              },
+              backgroundColor: darkMode ? "#444" : "#f7f7f7",
+              color: darkMode ? "#fff" : "black",
             }}
           />
-          <Button variant="contained" onClick={sendMessage} sx={{height: 55}} className="send-button">
+          <Button variant="contained" onClick={sendMessage} sx={{ height: 55 }} className="send-button">
             Send
           </Button>
+          <Switch checked={darkMode} onChange={handleDarkModeChange} />
         </Stack>
       </Stack>
     </Box>
   );
 }
-
-        
-          
-          
-    
- 
-      
-          
